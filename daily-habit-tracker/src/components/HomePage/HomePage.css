@@ -1,0 +1,44 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 40px;
+    font-weight: normal;
+}
+
+.signUpForm input {
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #D9D9D9;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px; 
+  margin-bottom: 6px;
+}
+
+.form-row label {
+  min-width: 100px; /* for å få label til å ha fast bredde */
+  text-align: left;
+}
+
+button {
+  padding: 8px 24px;
+  font-size: 18px;
+  min-width: 100%;
+  background-color: black;
+  color: white;
+  font-weight: normal;
+  border: 0;
+  border-radius: 20px;
+  margin-top: 15px;
+}
