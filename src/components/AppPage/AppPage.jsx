@@ -20,6 +20,7 @@ export default function AppPage() {
 
     const handleAddHabit = (newHabit) => {
         setHabits((prev) => [...prev, newHabit])
+        setShowContent(true)
     }
 
     return (
