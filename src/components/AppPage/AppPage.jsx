@@ -2,11 +2,13 @@ import { useState } from "react"
 import AddButton from "../AddButton/AddButton"
 import AddHabit from "../AddHabit/AddHabit"
 import NewHabit from "../NewHabit/NewHabit"
+import Habits from "../Habits/Habits"
 import "./AppPage.css"
 
 export default function AppPage() {
     const [showContent, setShowContent] = useState(false)
     const [showNewHabit, setShowNewHabit] = useState(false);
+    const [habits, setHabits] = useState([])
 
     const exitNewHabit = () => {
         setShowNewHabit(false)
@@ -14,6 +16,10 @@ export default function AppPage() {
 
     const handleAddClick = () => {
         setShowNewHabit(true);
+    }
+
+    const handleAddHabit = (newHabit) => {
+        setHabits((prev) => [...prev, newHabit])
     }
 
     return (
@@ -26,14 +32,14 @@ export default function AppPage() {
             </div>
                 
             <div className="habitContainer">
-                {showContent ? <Habits /> : <AddHabit />}
+                {showContent ? <Habits habits={habits} /> : <AddHabit />}
                 <AddButton onClick={handleAddClick} />
             </div>
           
 
             {showNewHabit && 
                 <div className="newHabitContainer">
-                    <NewHabit onExit={exitNewHabit} />
+                    <NewHabit onExit={exitNewHabit} handleAddHabit={handleAddHabit} />
                 </div>
             }
             

@@ -1,13 +1,25 @@
 import { useState } from "react"
 import "./NewHabit.css"
 
-export default function NewHabit({onExit}) {
+export default function NewHabit({onExit, handleAddHabit}) {
    
     const [isOn, setIsOn] = useState(false);
 
     const handleToggle = () => {
       setIsOn(!isOn);
     };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const habit = {
+            navn: event.target.navn.value,
+            ikon: event.target.ikon.value,
+            dato: event.target.dato.value,
+            varsel: event.target.checkbox.checked
+        };
+        handleAddHabit(habit);
+        onExit();
+    }
 
     
 
@@ -18,22 +30,22 @@ export default function NewHabit({onExit}) {
                 <h2>
                     Legg til en ny vane
                 </h2>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="nameContainer">
                         <label htmlFor="navn">Vanenavn og ikon</label>
                         <label htmlFor="ikon"></label>
                     </div>
                     <div id="nameInput">
-                        <input type="text" id="navn"/> 
-                        <input type="text" id="ikon" placeholder="🚲"/>
+                        <input type="text" id="navn" name="navn"/> 
+                        <input type="text" id="ikon" name="ikon" placeholder="🚲"/>
                     </div>                    
                    
                     <div className="extraContainer">
                         <label htmlFor="dato">Fra og med</label>
-                        <input type="date" id="dato"/>
+                        <input type="date" id="dato"name="dato"/>
                         <p id="varsel">Daglig varsel</p>
                         <label className="toggle-switch">
-                        <input id="checkbox" type="checkbox" checked={isOn} onChange={handleToggle} />
+                        <input id="checkbox" name="checkbox" type="checkbox" checked={isOn} onChange={handleToggle} />
                             <span className="slider"></span>
                         </label>
                     </div>
