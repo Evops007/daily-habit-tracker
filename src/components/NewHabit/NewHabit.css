@@ -1,0 +1,163 @@
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px; /* Adjust width as needed */
+  height: 34px; /* Adjust height as needed */
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc; /* Off state background */
+  transition: .4s;
+  border-radius: 34px; /* Rounded corners */
+  
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px; /* Adjust handle size */
+  width: 26px; /* Adjust handle size */
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%; /* Make handle round */
+}
+
+input:checked + .slider {
+  background-color: #4CAF50; /* On state background (green) */
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px); /* Move handle to the right when checked */
+}
+
+.exitButton {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  position: relative;
+  position: absolute;
+  right: 20px;
+}
+
+.exitButton::after {
+  content: '×';
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
+  font-family: 'Segoe UI';
+  font-weight: 100;
+}
+
+.innerHabitContainer h2 {
+    font-size: 32px;
+    text-align: left;
+}
+
+form {
+    width: 95vw;
+    height: 80vh;
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+}
+ 
+.innerHabitContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.nameContainer {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+
+input:not(#checkbox){
+    height: 38px;
+    border-radius: 50px;
+    border: none;
+    background-color: #d9d9d9;
+}
+
+#nameInput {
+    display: flex; 
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+#nameInput #navn {
+    width: 280px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#nameInput #ikon {
+    width: 60px;
+    margin-left: 10px;
+    font-size: 34px;
+    text-align: center;
+}
+
+
+.extraContainer {
+    width: 100%;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+.extraContainer label {
+    display: block;
+    margin-bottom: 5px;
+    padding-bottom: 0;
+    text-align: left;
+}
+
+.extraContainer input {
+    width: auto;
+    align-self: flex-start;
+    margin-top: 0px;
+}
+
+#dato {
+    width: 120px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#varsel {
+margin-top: 15px;
+margin-bottom: 5px;
+text-align: left;
+font-size: 16px;
+}
+
+.saveHabit {
+    align-self: center;
+    height: 40px;
+    width: 250px;
+    font-size: 16px;
+    margin-top: auto;
+    margin-bottom: 20px;
+}

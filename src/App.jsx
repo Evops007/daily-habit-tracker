@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css'
 import HomePage from './components/HomePage/HomePage'
+import AppPage from './components/AppPage/AppPage';
+import NewHabit from './components/NewHabit/NewHabit';
 
 function App() {
 
@@ -11,6 +13,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path='/apppage' element={<AppPage />} />
       </Routes>
     </Router>
   )

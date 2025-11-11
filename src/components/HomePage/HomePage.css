@@ -32,13 +32,16 @@ h1 {
 }
 
 button {
-  padding: 8px 24px;
-  font-size: 18px;
-  min-width: 100%;
   background-color: black;
   color: white;
-  font-weight: normal;
   border: 0;
   border-radius: 20px;
   margin-top: 15px;
+}
+.submitButton {
+  padding: 8px 24px;
+  font-size: 18px;
+  min-width: 90%;
+  max-width: 100%;
+  font-weight: normal;
 }

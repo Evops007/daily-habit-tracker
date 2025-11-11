@@ -1,3 +1,4 @@
+import { Navigate, useNavigate } from "react-router-dom";
 import "./HomePage.css"
 import { useState } from "react"
 
@@ -5,6 +6,8 @@ export default function HomePage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
+
+    const navigate = useNavigate();
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -16,9 +19,11 @@ export default function HomePage() {
         const data = await res.json();
             if (res.ok) {
                 setMessage("Bruker registrert!");
+                navigate("/apppage");
             } else {
                 setMessage(data.error || "Noe gikk galt");
             }
+        
     };
 
     const handleLogin = async () => {
@@ -59,7 +64,7 @@ export default function HomePage() {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <button type="submit">Fortsett</button>
+                    <button className="submitButton" type="submit">Fortsett</button>
                 </form>
                 {message && <p>{message}</p>}
             </div>
