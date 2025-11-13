@@ -2,7 +2,7 @@ import "./Habits.css"
 import { useState } from "react";
 
 export default function Habits({ habits }) {
-  const [swipeIndex, setSwipeIndex] = useState(null)
+  const [swipeIndex, setSwipeIndex] = useState(null);
   
   if (!habits || habits.length === 0) {
     return <p>Ingen vaner lagt til ennå.</p>;
@@ -28,33 +28,32 @@ export default function Habits({ habits }) {
   return (
     <ul className="habitList">
       {habits.map((habit, index) => (
-        <li
-          className={`habitLi ${swipeIndex === index ? "swiped" : ""}`}
-          key={index}
-          onTouchStart={(e) => handleTouchStart(e, index)}
-          onTouchEnd={(e) => handleTouchEnd(e, index)}
-          onClick={() => {
-            const checkbox = document.getElementById(`complete-${index}`);
-            if (checkbox) checkbox.checked = !checkbox.checked;
-          }}
-        >
-          <span className="completeHabitInput">
-            <label className="custom-checkbox">
-              <input id={`complete-${index}`} type="checkbox" name={`complete-${index}`} />
-              <span className="checkmark" aria-hidden="true"></span>
-            </label>
-          </span>
+        <div className="habitWrapper" key={index}>
+          <li
+            className={`habitLi ${swipeIndex === index ? "swiped" : ""}`}
+            key={index}
+            onTouchStart={(e) => handleTouchStart(e, index)}
+            onTouchEnd={(e) => handleTouchEnd(e, index)}
+            onClick={() => {
+              const checkbox = document.getElementById(`complete-${index}`);
+              if (checkbox) checkbox.checked = !checkbox.checked;
+            }}
+          >
+            <span className="completeHabitInput">
+              <label className="custom-checkbox">
+                <input id={`complete-${index}`} type="checkbox" name={`complete-${index}`} />
+                <span className="checkmark" aria-hidden="true"></span>
+              </label>
+            </span>
 
-          <span className="habitIkon">{habit.ikon}</span>
-          <span className="habitNavn">{habit.navn}</span>
-
-          {swipeIndex === index && (
-            <div className="habitActions">
-              <button className="edit">✏️</button>
-              <button className="delete">🗑️</button>
-            </div>
-          )}
-        </li>
+            <span className="habitIkon">{habit.ikon}</span>
+            <span className="habitNavn">{habit.navn}</span>
+          </li>
+          <div className={`habitActions ${swipeIndex === index ? "show" : ""}`}>
+            <button className="edit"><i class="fa-regular fa-pen-to-square"></i></button>
+            <button className="delete"><i class="fa-regular fa-trash-can"></i></button>
+          </div>
+        </div>
       ))}
     </ul>
   );

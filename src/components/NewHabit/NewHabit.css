@@ -57,7 +57,7 @@ input:checked + .slider:before {
 .exitButton::after {
   content: '×';
   position: absolute;
-  top: 35%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 28px;
@@ -70,12 +70,14 @@ input:checked + .slider:before {
     text-align: left;
 }
 
-.addHabitform {
-    width: 95vw;
-    height: 80vh;
+.addHabitForm {
+    width: 90vw;
+    height: 85vh;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     gap: 0;
+    margin: auto;
 }
  
 .innerHabitContainer {
@@ -87,8 +89,8 @@ input:checked + .slider:before {
 }
 
 .nameContainer {
-    text-align: left;
-    margin-bottom: 5px;
+  text-align: left;
+  margin-bottom: 5px;
 }
 
 
@@ -100,25 +102,34 @@ input:not(#checkbox){
 }
 
 #nameInput {
-    display: flex; 
-    flex-direction: row;
-    gap: 10px;
-    margin-top: 0;
-    margin-bottom: 15px;
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#nameInput input {
+  box-sizing: border-box;
+  margin-bottom: 15px;
 }
 
 #nameInput #navn {
-    width: 270px;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 10px;
+  flex: 0 0 80%;
+  padding-left: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 #nameInput #ikon {
-    width: 60px;
-    margin-left: 10px;
-    font-size: 34px;
-    text-align: center;
+  flex: 0 0 auto;
+  width: 15%;
+  text-align: center;
+  font-size: 24px;
+}
+
+#nameInput #ikon:focus::placeholder {
+  color: transparent;
 }
 
 
@@ -161,4 +172,5 @@ font-size: 16px;
     font-size: 16px;
     margin-top: auto;
     margin-bottom: 20px;
-}
+  
+  }
