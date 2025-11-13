@@ -20,6 +20,38 @@
     padding-bottom: 5px;
     padding-left: 4%;
     font-weight: 500;
+    position: relative; /* nødvendig for absolutte posisjonering av swipe-meny */
+    overflow: hidden;   /* for å skjule menyen når ikke swipet */
+    transition: transform 0.3s ease; /* glidende effekt når vi swiper */
+}
+
+.habitLi.swiped {
+    transform: translateX(-80px); /* flytt innholdet til venstre når swipet, juster etter meny-bredde */
+}
+
+.habitActions {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* avstand mellom knappene */
+    padding-right: 10px;
+    transform: translateX(100%); /* skjult utenfor skjermen */
+    transition: transform 0.3s ease;
+}
+
+.habitLi.swiped .habitActions {
+    transform: translateX(0); /* vis menyen når swipet */
+}
+
+.habitActions button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white; /* juster etter behov */
 }
 
 .habitIkon {
