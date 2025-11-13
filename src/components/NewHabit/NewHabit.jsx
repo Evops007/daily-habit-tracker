@@ -30,7 +30,7 @@ export default function NewHabit({onExit, handleAddHabit}) {
                 <h2>
                     Legg til en ny vane
                 </h2>
-                <form onSubmit={handleSubmit}>
+                <form className="addHabitForm" onSubmit={handleSubmit}>
                     <div className="nameContainer">
                         <label htmlFor="navn">Vanenavn og ikon</label>
                         <label htmlFor="ikon"></label>

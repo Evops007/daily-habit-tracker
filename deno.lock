@@ -16,6 +16,7 @@
         "npm:@types/react-dom@^19.2.2",
         "npm:@types/react@^19.2.2",
         "npm:@vitejs/plugin-react@^5.1.0",
+        "npm:bcrypt@6",
         "npm:drizzle-kit@~0.31.6",
         "npm:drizzle-orm@~0.44.7",
         "npm:eslint-plugin-react-hooks@^5.2.0",

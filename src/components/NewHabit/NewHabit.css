@@ -70,7 +70,7 @@ input:checked + .slider:before {
     text-align: left;
 }
 
-form {
+.addHabitform {
     width: 95vw;
     height: 80vh;
     display: flex;
@@ -108,9 +108,10 @@ input:not(#checkbox){
 }
 
 #nameInput #navn {
-    width: 280px;
+    width: 270px;
     margin-top: 0;
     margin-bottom: 0;
+    padding-left: 10px;
 }
 
 #nameInput #ikon {

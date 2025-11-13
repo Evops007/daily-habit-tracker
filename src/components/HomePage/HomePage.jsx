@@ -42,10 +42,10 @@ export default function HomePage() {
     };
 
     return (
-        <div>
+        <div className="outerSignUpFormContainer">
             <h1>Ny bruker</h1>
-            <div className="signUpForm">
-                <form onSubmit={handleRegister}>
+            <div className="signUpFormContainer">
+                <form className="signUpForm" onSubmit={handleRegister}>
                     <div className="form-row">
                         <label htmlFor="epost">E-post:</label>
                         <input 
