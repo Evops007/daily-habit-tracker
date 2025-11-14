@@ -1,11 +1,12 @@
 import "./Habits.css"
 import { useState } from "react";
+import AddHabit from "../AddHabit/AddHabit";
 
-export default function Habits({ habits }) {
+export default function Habits({ habits, onDelete, onEdit }) {
   const [swipeIndex, setSwipeIndex] = useState(null);
   
   if (!habits || habits.length === 0) {
-    return <p>Ingen vaner lagt til ennå.</p>;
+    return <AddHabit />;
   }
 
   const handleTouchStart = (e, index) => {
@@ -50,8 +51,17 @@ export default function Habits({ habits }) {
             <span className="habitNavn">{habit.navn}</span>
           </li>
           <div className={`habitActions ${swipeIndex === index ? "show" : ""}`}>
-            <button className="edit"><i class="fa-regular fa-pen-to-square"></i></button>
-            <button className="delete"><i class="fa-regular fa-trash-can"></i></button>
+            <button 
+              className="edit"
+              onClick={(e) => {e.stopPropagation(); if (onEdit) onEdit(habit.id); setSwipeIndex(null); }}
+            >
+            <i className="fa-regular fa-pen-to-square"></i></button>
+            
+            <button 
+              className="delete"
+              onClick={(e) => { e.stopPropagation(); if (onDelete) onDelete(habit.id); setSwipeIndex(null); }}
+            >
+            <i className="fa-regular fa-trash-can"></i></button>
           </div>
         </div>
       ))}

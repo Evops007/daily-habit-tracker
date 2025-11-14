@@ -54,7 +54,8 @@ button {
 .submitButton {
   padding: 8px 24px;
   font-size: 18px;
-  min-width: 90%;
+  min-width: 85%;
   max-width: 100%;
   font-weight: normal;
+  margin-bottom: 10px;
 }

@@ -1,6 +1,6 @@
 import "./AddHabit.css"
 
-export default function (){
+export default function AddHabit (){
     return (
         <div>
             <h3>Ingen vaner</h3>
