@@ -36,7 +36,7 @@ export default function EditHabit ({onExit, handleEditHabit, habit}) {
                     </div>
                     <div id="nameInput">
                         <input type="text" id="navn" name="navn" defaultValue={habit?.navn} />
-                        <input type="text" id="ikon" name="ikon" placeholder="🚲" defaultValue={habit?.ikon}/>
+                        <input type="text" id="ikon" name="ikon" maxLength={1} placeholder="🚲" defaultValue={habit?.ikon}/>
                     </div>                    
                    
                     <div className="extraContainer">

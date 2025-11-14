@@ -38,7 +38,7 @@ export default function NewHabit({onExit, handleAddHabit}) {
                     </div>
                     <div id="nameInput">
                         <input type="text" id="navn" name="navn"/> 
-                        <input type="text" id="ikon" name="ikon" placeholder="🚲"/>
+                        <input type="text" id="ikon" maxLength={1} name="ikon" placeholder="🚲"/>
                     </div>                    
                    
                     <div className="extraContainer">
