@@ -2,13 +2,16 @@ import "../NewHabit/NewHabit.css"
 import { useState } from "react";
 
 export default function EditHabit ({onExit, handleEditHabit, habit}) {
-
+    const [navn, setNavn] = useState(habit?.navn || "");
+    const [ikon, setIkon] = useState(habit?.ikon || "");
     const [isOn, setIsOn] = useState(habit?.varsel || false);
     
     const handleToggle = () => {
       setIsOn(!isOn);
     };
-    
+
+    const today = new Date().toISOString().split("T")[0]; // "2025-11-14"
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const updatedHabit = {
@@ -35,20 +38,20 @@ export default function EditHabit ({onExit, handleEditHabit, habit}) {
                         <label htmlFor="ikon"></label>
                     </div>
                     <div id="nameInput">
-                        <input type="text" id="navn" name="navn" defaultValue={habit?.navn} />
-                        <input type="text" id="ikon" name="ikon" maxLength={1} placeholder="🚲" defaultValue={habit?.ikon}/>
+                        <input type="text" id="navn" name="navn" defaultValue={habit?.navn} onChange={(e) => setNavn(e.target.value)} required/>
+                        <input type="text" id="ikon" name="ikon" placeholder="🚲" defaultValue={habit?.ikon} onChange={(e) => setIkon(e.target.value)} required/>
                     </div>                    
                    
                     <div className="extraContainer">
                         <label htmlFor="dato">Fra og med</label>
-                        <input type="date" id="dato" name="dato" defaultValue={habit?.dato} />
+                        <input type="date" id="dato" name="dato" defaultValue={today} />
                         <p id="varsel">Daglig varsel</p>
                         <label className="toggle-switch">
                         <input id="checkbox" name="checkbox" type="checkbox" checked={isOn} onChange={handleToggle} />
                             <span className="slider"></span>
                         </label>
                     </div>
-                    <button className="saveHabit" type="submit">Lagre</button>
+                    <button disabled={!navn || !ikon} className={!navn || !ikon ? "disabledButton" : "saveHabit"} type="submit">Lagre</button>
                 </form>
             </div>
         </div>

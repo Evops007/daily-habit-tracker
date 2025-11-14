@@ -2,12 +2,16 @@ import { useState } from "react"
 import "./NewHabit.css"
 
 export default function NewHabit({onExit, handleAddHabit}) {
-   
+    const [navn, setNavn] = useState("");
+    const [ikon, setIkon] = useState("");
+
     const [isOn, setIsOn] = useState(false);
 
     const handleToggle = () => {
       setIsOn(!isOn);
     };
+
+    const today = new Date().toISOString().split("T")[0]; // "2025-11-14"
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -37,20 +41,20 @@ export default function NewHabit({onExit, handleAddHabit}) {
                         <label htmlFor="ikon"></label>
                     </div>
                     <div id="nameInput">
-                        <input type="text" id="navn" name="navn"/> 
-                        <input type="text" id="ikon" maxLength={1} name="ikon" placeholder="🚲"/>
+                        <input type="text" id="navn" name="navn" onChange={(e) => setNavn(e.target.value)} required/> 
+                        <input type="text" id="ikon" name="ikon" placeholder="🚲" onChange={(e) => setIkon(e.target.value)} required/>
                     </div>                    
                    
                     <div className="extraContainer">
                         <label htmlFor="dato">Fra og med</label>
-                        <input type="date" id="dato"name="dato"/>
+                        <input type="date" id="dato"name="dato" defaultValue={today}/>
                         <p id="varsel">Daglig varsel</p>
                         <label className="toggle-switch">
                         <input id="checkbox" name="checkbox" type="checkbox" checked={isOn} onChange={handleToggle} />
                             <span className="slider"></span>
                         </label>
                     </div>
-                    <button className="saveHabit" type="submit">Lagre</button>
+                    <button type="submit" disabled={!navn || !ikon} className={!navn || !ikon ? "disabledButton" : "saveHabit"}>Lagre</button>
                 </form>
             </div>
         </div>

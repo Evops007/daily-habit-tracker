@@ -172,5 +172,15 @@ font-size: 16px;
     font-size: 16px;
     margin-top: auto;
     margin-bottom: 20px;
-  
   }
+
+  .disabledButton {
+    align-self: center;
+    height: 40px;
+    width: 250px;
+    font-size: 16px;
+    margin-top: auto;
+    margin-bottom: 20px;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
